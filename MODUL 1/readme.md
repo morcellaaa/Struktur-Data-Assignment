@@ -1,5 +1,5 @@
 # <h1 align="center">Laporan Praktikum Modul Tipe Data</h1>
-<p align="center">Lailatur Rahmahr</p>
+<p align="center">Lailatur Rahmah</p>
 
 ## Dasar Teori
 
