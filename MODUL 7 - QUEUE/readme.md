@@ -20,8 +20,6 @@ Dengan menggunakan konsep queue, dapat diimplementasikan dalam bahasa pemrograma
 
 ## Guided 
 
-### 1. [Nama Topik]
-
 ```C++
 /// Nama  : Lailatur Rahmah
 /// Nim   : 2311102177
@@ -120,8 +118,10 @@ int main() {
     return 0;
 }
 ```
+#### Output
+![image](https://github.com/morcellaaa/Struktur-Data-Assignment/assets/169327656/e343beb1-0da7-4d93-b464-6bd527a10ef4)
 
-### Deskripsi Program:
+#### Deskripsi Program:
 
 Kodingan ini mengimplementasikan antrian (queue) untuk mengatur antrian teller di bank.
 
@@ -177,16 +177,94 @@ Kodingan ini mensimulasikan antrian teller bank menggunakan konsep antrian (queu
 ### 1. Ubahlah penerapan konsep queue pada bagian guided dari array menjadi linked list
 
 ```C++
+/// Nama  : Lailatur Rahmah
+/// Nim   : 2311102177
+
 #include <iostream>
+
 using namespace std;
 
+struct Node {
+    string data;
+    Node* next;
+};
+
+Node* front = NULL;
+Node* back = NULL;
+
+bool isEmpty() {
+    return front == NULL;
+}
+
+void enqueueAntrian(string data) {
+    Node* newNode = new Node;
+    newNode->data = data;
+    newNode->next = NULL;
+
+    if (isEmpty()) {
+        front = back = newNode;
+    } else {
+        back->next = newNode;
+        back = newNode;
+    }
+}
+
+void dequeueAntrian() {
+    if (isEmpty()) {
+        cout << "Antrian kosong" << endl;
+    } else {
+        Node* temp = front;
+        front = front->next;
+        delete temp;
+        if (front == NULL) {
+        back = NULL;
+        }
+    }
+}
+
+int countQueue() {
+    int count = 0;
+    Node* current = front;
+    while (current != NULL) {
+        count++;
+        current = current->next;
+    }
+    return count;
+}
+
+void clearQueue() {
+    while (front != NULL) {
+        dequeueAntrian();
+    }
+}
+
+void viewQueue() {
+    cout << "Data antrian teller: " << endl;
+    Node* current = front;
+    int i = 1;
+    while (current != NULL) {
+        cout << i << ". " << current->data << endl;
+        current = current->next;
+        i++;
+    }
+}
+
 int main() {
-    cout << "ini adalah file code unguided praktikan" << endl;
+    enqueueAntrian("Andi");
+    enqueueAntrian("Maya");
+    viewQueue();
+    cout << "Jumlah antrian = " << countQueue() << endl;
+    dequeueAntrian();
+    viewQueue();
+    cout << "Jumlah antrian = " << countQueue() << endl;
+    clearQueue();
+    viewQueue();
+    cout << "Jumlah antrian = " << countQueue() << endl;
     return 0;
 }
 ```
 #### Output:
-![240302_00h00m06s_screenshot](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
+![image](https://github.com/morcellaaa/Struktur-Data-Assignment/assets/169327656/54ca2180-9623-47d0-9ad3-5432824b57c5)
 
 **Kodingan ini mengimplementasikan antrian (queue) menggunakan linked list untuk mengatur antrian teller di bank.**
 
@@ -251,16 +329,101 @@ Kodingan ini menggunakan linked list untuk membangun antrian data nasabah. Setia
 ### 2. Dari nomor 1 buatlah konsep antri dengan atribut Nama mahasiswa dan NIM Mahasiswa
 
 ```C++
+/// Nama  : Lailatur Rahmah
+/// Nim   : 2311102177
+
 #include <iostream>
+
 using namespace std;
 
+struct Mahasiswa {
+  string nama;
+  string nim;
+};
+
+struct Node {
+  Mahasiswa data;
+  Node* next;
+};
+
+Node* front = NULL;
+Node* back = NULL;
+
+bool isEmpty() {
+  return front == NULL;
+}
+
+void enqueueAntrian(Mahasiswa data) {
+  Node* newNode = new Node;
+  newNode->data = data;
+  newNode->next = NULL;
+
+  if (isEmpty()) {
+    front = back = newNode;
+  } else {
+    back->next = newNode;
+    back = newNode;
+  }
+}
+
+void dequeueAntrian() {
+  if (isEmpty()) {
+    cout << "Antrian kosong" << endl;
+  } else {
+    Node* temp = front;
+    front = front->next;
+    delete temp;
+    if (front == NULL) {
+      back = NULL;
+    }
+  }
+}
+
+int countQueue() {
+  int count = 0;
+  Node* current = front;
+  while (current != NULL) {
+    count++;
+    current = current->next;
+  }
+  return count;
+}
+
+void clearQueue() {
+  while (front != NULL) {
+    dequeueAntrian();
+  }
+}
+
+void viewQueue() {
+  cout << "Data antrian mahasiswa: " << endl;
+  Node* current = front;
+  int i = 1;
+  while (current != NULL) {
+    cout << i << ". Nama: " << current->data.nama << ", NIM: " << current->data.nim << endl;
+    current = current->next;
+    i++;
+  }
+}
+
 int main() {
-    cout << "ini adalah file code unguided praktikan" << endl;
-    return 0;
+  Mahasiswa mhs1 = {"Azka", "2311110049"};
+  Mahasiswa mhs2 = {"Kumui", "2311110149"};
+  enqueueAntrian(mhs1);
+  enqueueAntrian(mhs2);
+  viewQueue();
+  cout << "Jumlah antrian = " << countQueue() << endl;
+  dequeueAntrian();
+  viewQueue();
+  cout << "Jumlah antrian = " << countQueue() << endl;
+  clearQueue();
+  viewQueue();
+  cout << "Jumlah antrian = " << countQueue() << endl;
+  return 0;
 }
 ```
 #### Output:
-![240302_00h00m06s_screenshot](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
+![image](https://github.com/morcellaaa/Struktur-Data-Assignment/assets/169327656/dbf4f50a-c0f8-47a2-81bf-33c86891fb00)
 
 **Kodingan ini mengimplementasikan antrian (queue) menggunakan linked list untuk mengatur antrian mahasiswa.**
 
@@ -325,8 +488,6 @@ int main() {
 **Kesimpulan:**
 
 Kodingan ini memodifikasi code antrian sebelumnya untuk menyimpan data mahasiswa. Struktur data `Mahasiswa` dibuat untuk menyimpan informasi nama dan NIM, dan fungsi-fungsi yang berhubungan dengan antrian dimodifikasi untuk menangani data mahasiswa dengan tepat.
-
-
 
 ## Kesimpulan
 
