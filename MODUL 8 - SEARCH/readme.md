@@ -1,6 +1,6 @@
 # <h1 align="center">Laporan Praktikum Modul Algoritma Searching</h1>
 
-<p align="center">Muhammad Azka</p>
+<p align="center">Lailatur Rahmah</p>
 
 ## Features
 
