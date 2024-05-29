@@ -7,7 +7,13 @@
 
 ### Pengertian Graph
 
-Grafik adalah alat matematika yang ampuh untuk memikirkan hubungan antara sesuatu yang diberikan entitas, dengan fokus pada struktur dan karakteristik hubungan, independen terhadap apa sebenarnya entitas dan hubungannya. Grafik dapat diterapkan pada kumpulan data aktual apa pun yang dapat memiliki hubungan antar elemen didirikan. [2] Di sini dapat sisimpulkan bahwa graf dalam c++ adalah suatu struktur data yang setiap datanya atau simpulnya memiliki hubungan dengan data lainya atau juga disebut dengan bobot.
+Grafik adalah alat matematika yang ampuh untuk memikirkan hubungan antara sesuatu yang diberikan entitas, dengan fokus pada struktur dan karakteristik hubungan, independen terhadap apa sebenarnya entitas dan hubungannya. Grafik dapat diterapkan pada kumpulan data aktual apa pun yang dapat memiliki hubungan antar elemen didirikan [2]. Di sini dapat sisimpulkan bahwa graf dalam c++ adalah suatu struktur data yang setiap datanya atau simpulnya memiliki hubungan dengan data lainya atau juga disebut dengan bobot. Graph terdiri dari himpunan verteks (node) dan himpunan sisi (edge, arc). Verteks menyatakan entitasentitas data dan sisi menyatakan keterhubungan antara verteks [4].
+
+Notasi matematis graph G adalah : <br/>
+G = (V, E) <br/>
+Sebuah sisi antara verteks x dan y ditulis {x, y}.<br/>
+Subgraph : graph yang merupakan suatu subset (bagian) graph yang connected<br/>
+Graph H = (V1, E1) disebut subgraph dari graph G jika V1adalah himpunan bagian dari V dan E1 himpunan bagian dari E. 
 
 #### Jenis Graph
 
@@ -53,7 +59,7 @@ Representasi Matriks Keterhubungan Langsungv(Adjacency Matrix) Matriks digunakan
 
 Tree merupakan salah satu struktur data yang paling penting, karena banyak aplikasi menggunakan informasi dan data yang secara alami memiliki struktur hirarkis berguna dalam membantu memecahkan banyak masalah algoritmis.
 Pembentukan Binary Tree berdasarkan Preorder, Inorder atau Postorder Untuk membentuk suatu binary tree berdasarkan preorder, inorder atau postorder dapat dilakukan dengan syarat menggunakan 2 dari tiga penelusuran tersebut
-dan salah satunya harus inorder. 
+dan salah satunya harus inorder [4].
 
 ![image](https://github.com/morcellaaa/Struktur-Data-Assignment/assets/169327656/8f6157d5-675e-46ef-b06c-9db86d133aa3)
 
@@ -88,7 +94,7 @@ dan salah satunya harus inorder.
 7) Retrive: digunakan untuk mengetahui isi dari node yang ditunjuk pointer current dengan syarat tree tidak boleh kosong.<br/>
 8) Delete Sub: digunakan untuk menghapus sebuah subtree (node beserta seluruh descendant-nya) yang ditunjuk pointer current dengan syarat tree tidak boleh kosong.<br/>
 9) Characteristic: digunakan untuk mengetahui karakteristik dari suatu tree. Yakni size, height, serta average lenght-nya.<br/>
-10) Traverse: digunakan untuk mengunjungi seluruh node-node pada tree dengan cara traversal. Terdapat 3 metode traversal yang dibahas dalam modul ini yakni Pre-Order, In-Order, dan Post-Order.<br/><br/>
+10) Traverse: digunakan untuk mengunjungi seluruh node-node pada tree dengan cara traversal. Terdapat 3 metode traversal yang dibahas dalam modul ini yakni Pre-Order, In-Order, dan Post-Order.
 
 ## Guided
 
@@ -1322,7 +1328,9 @@ Penghapusan subtree dari root
 
 ![image](https://github.com/morcellaaa/Struktur-Data-Assignment/assets/169327656/1ffdd5eb-7ff8-4b1a-a91b-a4413689017f)
 
-Kode diatas adalah contoh penggunaan `Tree` Fungsi-fungsi serta logika yang digunakan pada dasarnya sama seperti `Guided 2`. Yang membedakan disini hanya penambahan fungsi `getRoot` yaitu untuk mengakses node root di luar class `Tree` dan fungsi `findNode` untuk mencari suatu node dengan data yang sama yang diterima parameternya. Pada dasarnya penambahan fungsi-fungsi tersebut berfungsi untuk keperluan tampilan menu agar user memiliki fleksibilitas lebih dalam mengolah tree.  
+### Kesimpulan
+
+Program di atas merupakan implementasi dari struktur data pohon biner menggunakan bahasa pemrograman C++. Program ini memungkinkan pengguna untuk membuat, memodifikasi, dan melakukan operasi pada pohon biner, seperti menambahkan node, menghapus subtree, mencari node, dan melakukan penelusuran pohon (traversal) dalam urutan pre-order, in-order, dan post-order. Selain itu, program ini juga menyediakan fitur untuk menampilkan karakteristik pohon seperti ukuran (jumlah node), tinggi, dan rata-rata node per level. Dengan interaksi melalui menu, pengguna dapat secara dinamis memanipulasi struktur pohon dan mengamati hasilnya.  
 
 ## Kesimpulan
 
@@ -1338,3 +1346,4 @@ Sementara itu, Tree dalam C++ adalah struktur data yang menawarkan konsep hierar
 
 [3] Sindar, A, STRUKTUR DATA DAN ALGORITMADENGAN C++. Cetakan Pertama. Serang:CV.AA.RIZKY, 2018.
 
+[4] Dr. Joseph Teguh Santoso, S. K. (2011). STRUKTUR DATA dan ALGORTIMA (Bagian 1). YAYASAN PRIMA AGUS TEKNIK.
