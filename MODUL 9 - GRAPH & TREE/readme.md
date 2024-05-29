@@ -14,8 +14,8 @@ Grafik adalah alat matematika yang ampuh untuk memikirkan hubungan antara sesuat
 1) Directed Graph/digraph (Graf Berarah) : Jika sisi-sisi graph hanya berlaku satu arah. Misalnya : {x,y} yaitu arah x ke y, bukan dari y ke x; x disebut origin dan y disebut terminus. Secara notasi sisi digraph ditulis sebagai vektor (x, y). <br/>
 Contoh Digraph G = {V,E}<br/>
 V = {A, B, C, D, E, F, G, H, I,J, K, L, M} <br/>
-E = {(A,B),(A,C), (A,D), (A,F), (B,C), (B,H), (C,E), (C,G), (C,H), (C,I), (D,E), (D,F), (D,G), (D,K), (D,L), (E,F), (G,I), (G K), (H,I), (I,J), (I,M), (J,K), (J,M), (L,K), (L,M)}.[1] <br/>
-![Digraph](digraph.png)<br/> <br/>
+E = {(A,B),(A,C), (A,D), (A,F), (B,C), (B,H), (C,E), (C,G), (C,H), (C,I), (D,E), (D,F), (D,G), (D,K), (D,L), (E,F), (G,I), (G K), (H,I), (I,J), (I,M), (J,K), (J,M), (L,K), (L,M)}.[1] 
+
 2) Undirected Graph/UndiGraph (Graph Tak Berarah) : setiap sisi {x, y} berlaku pada kedua arah: baik x ke y maupun y ke x Secara grafis sisi pada undigraph tidak memiliki mata panah dan secara notasional menggunakan kurung kurawal. <br/>
 Contoh Undigraph G = {V, E} <br/>
 V = {A, B, C, D, E, F, G, H, I,J, K, L, M} <br/>
