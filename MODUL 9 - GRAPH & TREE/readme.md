@@ -642,7 +642,7 @@ int main()
 
 ### Kesimpulan
 
-Kode diatas adalah contoh penggunaan `Graph`. Kode tersebut berfungsi untuk membuat sebuah graph dengan jumlah sesuai dengan inputan user. Pada fungsi `fillVertex` user mengisi data simpul secara manual, setelah array simpul sudah di isi selanjutnya user juga diminta untuk mengisi bobot dari setiap simpul tersebut. Terakhir program akan mencetak hasil array simpul dan busur tadi.  
+Program di atas merupakan sebuah program dalam bahasa C++ yang memungkinkan pengguna untuk memasukkan data mengenai simpul-simpul dan bobot antar simpul pada suatu graf. Pertama-tama, pengguna diminta untuk memasukkan jumlah simpul yang ingin dimasukkan. Kemudian, program meminta pengguna untuk memasukkan nama setiap simpul dan bobot antar simpul. Data-data ini disimpan dalam matriks dua dimensi dan kemudian dicetak ke layar sebagai representasi visual dari hubungan antar simpul-simpulnya. Program ini menggunakan variabel global untuk menyimpan jumlah simpul, bobot antar simpul, dan nama simpul.  
 
 ## Unguided 2
 
