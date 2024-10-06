@@ -1,0 +1,563 @@
+<h2 align="center"><strong>LAPORAN PRAKTIKUM</strong></h2>
+<h2 align="center"><strong>ALGORITMA DAN PEMROGRAMAN 2</strong></h2>
+
+<br>
+
+<h2 align="center"><strong>MODUL II</strong></h2>
+<h2 align="center"><strong> REVIEW STRUKTUR KONTROL </strong></h2>
+
+<br>
+
+<p align="center">
+
+  <img src="https://github.com/user-attachments/assets/0a03461e-7740-4661-9e83-9925031bd72c" alt="Logo" width="200"/>
+
+</p>
+
+<br>
+
+<p align="center">
+  <strong>Disusun Oleh:</strong><br>
+  LAILATUR RAHMAH / 2311102177<br>
+  S1 IF 11 06
+</p>
+
+<br>
+
+<p align="center">
+  <strong>Dosen Pengampu:</strong><br>
+  
+</p>
+
+<br>
+
+<p align="center">
+  <strong>PROGRAM STUDI S1 TEKNIK INFORMATIKA</strong><br>
+  <strong>FAKULTAS INFORMATIKA</strong><br>
+  <strong>TELKOM UNIVERSITY PURWOKERTO</strong><br>
+  <strong>2024</strong>
+</p>
+
+------
+
+## Features
+
+- [Dasar Teori](#dasar-teori)
+- [Guided](#guided)
+- [Unguided](#unguided)
+- [Kesimpulan](#kesimpulan)
+- [Referensi](#referensi)
+
+## DASAR TEORI
+
+### Struktur Program Go
+
+Dalam kerangka program yang ditulis dalam bahasa pemograman Go, program utama selalu mempunyai dua komponen berikut:
+
+* **package main** merupakan penanda bahwa file ini berisi program utama.
+
+* **func main()** berisi kode utama dari sebuah program Go
+
+Komentar bukan bagian dari kode program, dan dapat ditulis dimana saja di dalam program:
+
+* satu baris teks yang diawali dengan garis miring gada ('//') s.d akhir baris.
+* beberapa baris teks yang dimulai dengan pasangan karakter '/*' dan diakhiri dengan 
+'*/'
+
+Review struktur kontrol dalam bahasa Go (Golang) berkaitan dengan berbagai elemen yang digunakan untuk mengontrol aliran eksekusi program. 
+Struktur kontrol mengatur bagaimana blok kode tertentu dieksekusi berdasarkan kondisi atau perulangan. [1]
+Berikut beberapa dasar teori dari struktur kontrol dalam bahasa Go:
+
+**A. Pernyataan Kondisional (`if, else if, else`)**
+
+- Digunakan untuk mengeksekusi blok kode tertentu jika kondisi tertentu terpenuhi.[1]
+- Bentuk dasar:
+```go
+if kondisi {
+    // blok kode dieksekusi jika kondisi true
+} else if kondisi_lain {
+    // blok kode dieksekusi jika kondisi_lain true
+} else {
+    // blok kode dieksekusi jika tidak ada kondisi yang terpenuhi
+}
+```
+- Go juga mendukung pendeklarasian variabel dalam pernyataan if :
+```go
+if nilai := hitungNilai(); nilai > 10 {
+    fmt.Println("Nilai lebih besar dari 10")
+}
+```
+
+**2. Pernyataan Switch (`Switch`)**
+
+- Alternatif dari beberapa pernyataan if else, mempermudah pembacaan kode.[1]
+- Tidak seperti bahasa lain, switch Go secara otomatis tidak membutuhkan break untuk menghentikan eksekusi.[1]
+- Bentuk dasar
+```go
+switch ekspresi {
+case nilai1:
+    // blok kode jika ekspresi == nilai1
+case nilai2:
+    // blok kode jika ekspresi == nilai2
+default:
+    // blok kode jika tidak ada nilai yang cocok
+}
+```
+- `switch` juga bisa digunakan tanpa ekspresi untuk mengevaluasi kondisi :
+```go
+switch {
+case x > 10:
+    fmt.Println("x lebih besar dari 10")
+case x < 5:
+    fmt.Println("x lebih kecil dari 5")
+default:
+    fmt.Println("x berada di antara 5 dan 10")
+}
+```
+**3. Perulangan (`for`)**
+   
+- Bahasa Go hanya memiliki satu jenis perulangan, yaitu for. Namun, for ini fleksibel dan dapat digunakan untuk berbagai bentuk perulangan.[1]
+- Bentuk dasar for
+```go
+for i := 0; i < 10; i++ {
+    fmt.Println(i)
+}
+```
+- Perulangan tanpa kondisi (`infinite loop`)
+```go
+for {
+    fmt.Println("Perulangan tanpa akhir")
+}
+```
+- Digunakan untuk mengiterasi elemen dalam slice, array, map, atau channel :
+```go
+for index, value := range collection {
+    fmt.Println(index, value)
+}
+```
+
+**4. Pernyataan `break` dan `continue`**
+
+- `break` digunakan untuk menghentikan eksekusi dari perulangan atau `switch`[1]
+```go
+for i := 0; i < 10; i++ {
+    if i == 5 {
+        break // keluar dari loop saat i == 5
+    }
+}
+```
+- `continue` digunakan untuk melewati eksekusi kode yang tersisa dalam iterasi dan langsung lanjut ke iterasi berikutnya.
+```go
+for i := 0; i < 10; i++ {
+    if i % 2 == 0 {
+        continue // loncat ke iterasi berikutnya jika i genap
+    }
+    fmt.Println(i) // hanya akan mencetak bilangan ganjil
+}
+```
+**5. Pernyataan `goto`**
+- Go mendukung `goto`, meskipun jarang digunakan karena dapat membuat kode sulit diikuti. `goto` memindahkan eksekusi program ke label yang ditentukan.[1]
+```go
+func main() {
+    i := 0
+loop:
+    if i < 5 {
+        fmt.Println(i)
+        i++
+        goto loop
+    }
+}
+```
+
+**6. Pernyataan `Defer`**
+- `defer` digunakan untuk menunda eksekusi fungsi sampai fungsi yang menampung defer selesai.[1]
+```go
+func contoh() {
+    defer fmt.Println("Ini dieksekusi terakhir")
+    fmt.Println("Ini dieksekusi pertama")
+}
+```
+- `defer`sering digunakan untuk menutup resource seperti file atau koneksi jaringan, memastikan resource tersebut ditutup meskipun terjadi error.
+
+**7.  `Panic` dan `Recover`**
+- `panic` digunakan untuk menghentikan eksekusi program secara tiba-tiba. Biasanya digunakan untuk menangani kesalahan yang tidak bisa ditangani di runtime.[1]
+```go
+panic("Terjadi kesalahan!")
+```
+- `recover` digunakan untuk mengontrol dan mengatasi panic, sehingga program bisa kembali berjalan.
+```go
+func contohPanic() {
+    defer func() {
+        if r := recover(); r != nil {
+            fmt.Println("Recover dari panic:", r)
+        }
+    }()
+    panic("Terjadi panic")
+}
+```
+
+**B. Catatan**
+
+Semua proses terkait bahasa Go dilakukan melalui utilitas Go. Beberapa opsi dengan utilitas go:
+
+* **go build** mengkompilasi program sumber yang ada dalam folder menjadi sebuah program.
+* **go build file.go** mengkompilasi program sumber file.go saja.
+* **go fmt** membaca semua program sumber dalam folder dan mereformat penulisannya agar sesuai dengan standar penulisan program sumber Go.
+* **go clean** membersihkan file-file dalam folder sehingga tersisa program sumbernya saja.
+
+### 2.2 Tipe Data dan Intruksi Dasar
+
+**1. Tipe Data**
+
+Integer (Bilangan Bulat)
+
+Go menyediakan beberapa tipe integer:
+- `int`: ukuran tergantung platform (32 atau 64 bit)
+- `int8`: -128 hingga 127
+- `int16`: -32768 hingga 32767
+- `int32`: -2147483648 hingga 2147483647
+- `int64`: -9223372036854775808 hingga 9223372036854775807
+- `uint`: unsigned integer, tergantung platform
+- `uint8`: 0 hingga 255
+- `uint16`: 0 hingga 65535
+- `uint32`: 0 hingga 4294967295
+- `uint64`: 0 hingga 18446744073709551615
+
+Contoh penggunaan:
+```go
+var angka int = 42
+var umur uint8 = 25
+```
+
+### Float (Bilangan Desimal)
+Go memiliki dua tipe float:
+- `float32`: ±1.18×10⁻³⁸ hingga ±3.4×10³⁸
+- `float64`: ±2.23×10⁻³⁰⁸ hingga ±1.80×10³⁰⁸
+
+Contoh penggunaan:
+```go
+var pi float64 = 3.14159265359
+var suhu float32 = 27.5
+```
+
+### String
+String di Go adalah urutan karakter UTF-8 yang tidak dapat diubah (immutable).
+
+Fitur string di Go:
+1. Dapat menggunakan tanda kutip ganda (`"`) untuk string biasa
+2. Dapat menggunakan tanda kutip balik (`` ` ``) untuk raw string
+
+Contoh penggunaan:
+```go
+var nama string = "Budi"
+var alamat string = `Jalan Merdeka No. 17
+Kota Jakarta`  // Raw string bisa multi-baris
+```
+
+### Boolean
+Tipe bool memiliki dua nilai: `true` atau `false`
+
+Contoh penggunaan:
+```go
+var lulus bool = true
+var menikah bool = false
+```
+
+## 2. Percabangan
+
+### If-Else
+Struktur if-else di Go memiliki beberapa fitur unik:
+1. Tidak memerlukan tanda kurung `()` untuk kondisi
+2. Kurung kurawal `{}` wajib digunakan
+3. Dapat memiliki statement singkat sebelum kondisi
+
+Contoh:
+```go
+// If-else biasa
+if nilai >= 75 {
+    fmt.Println("Lulus")
+} else {
+    fmt.Println("Tidak lulus")
+}
+
+// If dengan statement singkat
+if skor := hitungSkor(); skor > 100 {
+    fmt.Println("Skor maksimum!")
+}
+```
+
+### Switch
+Switch di Go lebih fleksibel dibanding bahasa lain:
+1. Tidak perlu `break` di setiap case
+2. Case bisa memiliki multiple values
+3. Bisa menggunakan kondisi di setiap case
+
+Contoh:
+```go
+// Switch biasa
+switch buah {
+case "apel":
+    fmt.Println("Ini apel")
+case "jeruk", "lemon":  // Multiple values
+    fmt.Println("Ini jeruk atau lemon")
+default:
+    fmt.Println("Buah tidak dikenal")
+}
+
+// Switch dengan kondisi
+switch {
+case nilai >= 90:
+    fmt.Println("A")
+case nilai >= 80:
+    fmt.Println("B")
+default:
+    fmt.Println("C")
+}
+```
+
+## 3. Perulangan
+
+Go hanya memiliki satu konstruksi perulangan: `for`. Namun, ini bisa digunakan dalam beberapa cara:
+
+### For Tradisional
+```go
+for i := 0; i < 5; i++ {
+    fmt.Println(i)
+}
+```
+Komponen:
+1. Statement inisialisasi: `i := 0`
+2. Kondisi: `i < 5`
+3. Statement post: `i++`
+
+### For sebagai While
+```go
+counter := 0
+for counter < 5 {
+    fmt.Println(counter)
+    counter++
+}
+```
+Hanya menggunakan kondisi, mirip `while` di bahasa lain.
+
+### For Range
+Digunakan untuk iterasi melalui struktur data:
+```go
+slice := []string{"apel", "jeruk", "mangga"}
+for index, nilai := range slice {
+    fmt.Printf("Index: %d, Nilai: %s\n", index, nilai)
+}
+```
+Dapat digunakan pada:
+1. Array atau slice
+2. String
+3. Map
+4. Channel
+
+### Infinite Loop
+```go
+for {
+    fmt.Println("Loop tanpa henti")
+    // Gunakan 'break' untuk keluar dari loop
+}
+```
+
+## Break
+1. Gunakan `break` untuk keluar dari loop
+2. Gunakan `continue` untuk melompat ke iterasi berikutnya
+3. Label bisa digunakan dengan `break` dan `continue` untuk kontrol yang lebih spesifik
+
+Contoh label:
+```go
+outerLoop:
+for i := 0; i < 5; i++ {
+    for j := 0; j < 5; j++ {
+        if i*j > 10 {
+            break outerLoop
+        }
+    }
+}
+```
+
+**A. Data dan Variabel**
+
+Variabel adalah nama dari suatu lokasi di memori yang data dengan tipe tertentu dapat disimpan.
+
+* Nama variabel dimulai dengan huruf dan dapat diikuti dengan sejumlah huruf, angka, atau garis bawah.
+
+Contoh: ketemu, found, rerata, mhs1, data_2, ...
+
+* Tipe data yang umum tersedia adalah integer, real, boolean, karakter, dan string. 
+
+* Nilai data yang tersimpan dalam variabel dapat diperoleh dengan menyebutkan langsung nama variabelnya.
+
+Contoh: Menyebutkan nama found akan mengambil nilai tersimpan dalam memori untuk variabel found pastinya.
+
+* Informasi alamat atau lokasi dari variabel dapat diperoleh dengan menambahkan prefiks & di depan nama variabel tersebut.
+
+Contoh: &found akan mendapatkan alamat memori untuk menyimpan data pada found.
+
+* Jika variabel berisi alamat memori, prefiksn * pada variabel tersebut akan memberikan nilai yang tersimpan dalam memori yang lokasinya disimpan dalam variabel tersebut.
+
+Contoh: *mem akan mendapatkan data di memori yang alamatnya tersimpan di mem. Karenanya *(&found) akan mendapatkan data dari lokasi memori variabel found berada, alias sama saja dengan menyebutkan langsung found 8=).
+
+
+## GUIDED
+
+### 1. Telusuri program berikut dengan cara mengkompilasi dan mengeksekusi program. Silahkan masukkan data yang sesuai sebanyak yang diminta program. Perhatikan keluaran yang diperoleh. Coba terangkan apa sebenarnya yang di lakukan program tersebut.
+
+#### Source Code
+```go
+package main
+
+import (
+	"fmt" // Mengimpor paket fmt yang menyediakan fungsi untuk input/output standar
+)
+
+func main() {
+	var nama string // Deklarasi variabel nama dengan tipe string
+
+	// Menggunakan fmt.Scanln untuk membaca input dari pengguna.
+	// Harus menggunakan &nama karena Scanln mengharapkan pointer agar bisa mengisi nilai ke variabel nama
+	fmt.Scanln(&nama)
+
+	// Mencetak nilai variabel nama ke layar setelah input diambil dari pengguna
+	fmt.Println(nama)
+}
+```
+
+#### Screenshoot Source Code
+
+#### Screenshoot Output
+
+#### Deskripsi Program
+
+##### Algoritma Program
+
+##### Cara Kerja Program
+
+### 2. Tahun kabisat adalah tahun yang habis dibagi 400 atau habis dibagi 4 tetapi tidak habis dibagi 100. Buatlah sebuah program yang menerima input sebuah bilangan bulat dan memeriksa apakah bilangan tersebut merupakan tahun kabisat (true) atau bukan (false).
+
+
+#### Source Code
+
+```go
+
+```
+
+#### Screenshoot Source Code
+
+#### Screenshoot Output
+
+#### Deskripsi Program
+
+##### Algoritma Program
+
+##### Cara Kerja Program
+
+### 3. Buat program Bola yang menerima input jari-jari suatu bola (bilangan bulat). Tampilkan Volume dan Luas kulit bola. volumebola = r³ dan luasbola = 4πr² (π = 3.1415926535).
+
+#### Source Code
+
+```go
+
+```
+
+#### Screenshoot Source Code
+
+#### Screenshoot Output
+
+#### Deskripsi Program
+
+##### Algoritma Program
+
+##### Cara Kerja Program
+
+## Unguided
+
+### 1. Buatlah sebuah program untuk mencari sebuah huruf pada sebuah kalimat yang sudah di input dengan menggunakan Binary Search!
+
+```C++
+
+```
+
+#### Output:
+
+![image](https://github.com/morcellaaa/Struktur-Data-Assignment/assets/169327656/3b36df10-33a2-4429-8255-b5d1f538b2a6)
+
+## Interpretasi dan Langkah-langkah Kode Algoritma Menghitung Huruf Vokal
+
+**Interpretasi:**
+
+Kode di atas menunjukkan implementasi fungsi `countVowels()` untuk menghitung jumlah huruf vokal dalam sebuah kalimat. Fungsi ini menerima string kalimat sebagai parameter dan mengembalikan jumlah huruf vokal yang ditemukan.
+
+**Langkah-langkah:**
+
+1. **Memasukkan Kalimat:**
+    * Pengguna diminta untuk memasukkan kalimat yang ingin dihitung huruf vokalnya.
+    * Kalimat disimpan dalam variabel `kalimat`.
+
+
+
+**Kesimpulan:**
+
+Fungsi `countVowels()` ini memungkinkan penghitungan jumlah huruf vokal dalam string dengan efisien. Algoritma ini bermanfaat untuk menganalisis teks, data linguistik, atau informasi lainnya yang terkait dengan huruf vokal.
+
+### 2. Buatlah sebuah program yang dapat menghitung banyaknya huruf vocal dalam sebuah kalimat!
+
+```C++
+
+```
+
+#### Output:
+
+![image](https://github.com/morcellaaa/Struktur-Data-Assignment/assets/169327656/7e3a2bf1-4242-4804-91cb-47c4f9c5c6d8)
+
+## Interpretasi dan Langkah-langkah Kode Algoritma Menghitung Huruf Vokal
+
+**Interpretasi:**
+
+Kode di atas menunjukkan implementasi fungsi `countVowels()` untuk menghitung jumlah huruf vokal dalam sebuah kalimat. Fungsi ini menerima string kalimat sebagai parameter dan mengembalikan jumlah huruf vokal yang ditemukan.
+
+**Langkah-langkah:**
+
+1. **Memasukkan Kalimat:**
+    * Pengguna diminta untuk memasukkan kalimat yang ingin dihitung huruf vokalnya.
+    * Kalimat disimpan dalam variabel `kalimat`.
+
+
+### 3. Diketahui data = 9, 4, 1, 4, 7, 10, 5, 4, 12, 4. Hitunglah berapa banyak angka 4 dengan menggunakan algoritma Sequential Search!
+
+```C++
+
+```
+
+#### Output:
+
+![image](https://github.com/morcellaaa/Struktur-Data-Assignment/assets/169327656/866fa3bf-38c5-4f92-8ce7-31e70a44dd94)
+
+## Interpretasi dan Langkah-langkah Kode Algoritma Menghitung Angka 4
+
+**Interpretasi:**
+
+Kode di atas menunjukkan implementasi fungsi `countFours()` untuk menghitung berapa banyak angka 4 dalam array data integer. Fungsi ini menerima array data dan panjang array sebagai parameter dan mengembalikan jumlah angka 4 yang ditemukan dalam array.
+
+**Langkah-langkah:**
+
+1. **Definisikan Fungsi:**
+    * Fungsi `countFours()` didefinisikan dengan parameter `data` (array data integer) dan `length` (panjang array).
+    * Fungsi ini mengembalikan nilai integer yang merupakan jumlah angka 4 yang ditemukan dalam array.
+
+
+**Kesimpulan:**
+
+Fungsi `countFours()` ini memungkinkan penghitungan jumlah angka 4 dalam array data integer dengan efisien. Algoritma ini bermanfaat untuk analisis data, pemrosesan array, atau tugas yang melibatkan pencarian nilai tertentu dalam array.
+
+## Kesimpulan
+
+Algoritma searching merupakan alat penting dalam ilmu komputer yang digunakan untuk menemukan elemen tertentu dalam sekumpulan data. Berbagai algoritma searching tersedia dengan kompleksitas waktu dan karakteristik yang berbeda. Pemilihan algoritma searching yang tepat tergantung pada beberapa faktor, seperti struktur data, ukuran data, informasi awal, dan presisi.
+
+## Referensi
+
+[1] P. Nagarajan dan A. Thamizhendhi, "A survey on searching techniques," 2020
+
