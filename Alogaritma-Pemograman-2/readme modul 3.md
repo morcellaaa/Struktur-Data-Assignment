@@ -3,8 +3,8 @@
 
 <br>
 
-<h2 align="center"><strong>MODUL II</strong></h2>
-<h2 align="center"><strong> REVIEW STRUKTUR KONTROL </strong></h2>
+<h2 align="center"><strong>MODUL III</strong></h2>
+<h2 align="center"><strong> FUNGSI </strong></h2>
 
 <br>
 
@@ -49,13 +49,15 @@
 
 ## DASAR TEORI
 
+Dalam pemrograman, fungsi adalah sekumpulan instruksi yang dikelompokkan untuk melakukan tugas tertentu. Dalam bahasa Go (Golang), fungsi memainkan peran yang sangat penting karena memungkinkan pengembang untuk membagi kode yang kompleks menjadi bagian-bagian yang lebih kecil dan lebih mudah dikelola. Dengan menggunakan fungsi, pengembang dapat menghindari pengulangan kode, sehingga mengurangi kemungkinan kesalahan dan memudahkan pemeliharaan. Selain itu, fungsi meningkatkan modularitas kode, yang berarti setiap bagian dapat berfungsi secara independen. Ini juga meningkatkan keterbacaan, sehingga orang lain (atau pengembang itu sendiri di masa depan) dapat dengan mudah memahami apa yang dilakukan kode tersebut.
+
 **1. Dasar Fungsi dalam Bahasa Go**
 
-* Fungsi adalah blok kode yang digunakan untuk melakukan tugas tertentu secara modular dan reusable. [1]
-* Dalam bahasa Go, fungsi merupakan first-class citizens, yang berarti mereka dapat disimpan dalam variabel, diteruskan sebagai argumen ke fungsi lain, dan bahkan dikembalikan dari fungsi.[1]
+* Fungsi adalah blok kode yang digunakan untuk melakukan tugas tertentu secara modular dan reusable. 
+* Dalam bahasa Go, fungsi merupakan first-class citizens, yang berarti mereka dapat disimpan dalam variabel, diteruskan sebagai argumen ke fungsi lain, dan bahkan dikembalikan dari fungsi.
 
 **2. Deklarasi Fungsi**
-* Fungsi dideklarasikan menggunakan kata kunci `func`, diikuti oleh nama fungsi, parameter (jika ada), tipe kembalian (jika ada), dan blok kode yang akan dieksekusi.[2]
+* Fungsi dideklarasikan menggunakan kata kunci `func`, diikuti oleh nama fungsi, parameter (jika ada), tipe kembalian (jika ada), dan blok kode yang akan dieksekusi.
 
 ```go
 func tambah(a int, b int) int {
@@ -65,8 +67,8 @@ func tambah(a int, b int) int {
 * Fungsi `tambah` di atas menerima dua parameter `a` dan `b` bertipe `int`, kemudian mengembalikan hasil penjumlahan keduanya sebagai `int`.
 
 **3. Multiple Return Values (Pengembalian Banyak Nilai)**
-* Go mendukung pengembalian lebih dari satu nilai dari suatu fungsi. [2]
-* Ini sering digunakan, terutama saat kita ingin mengembalikan hasil operasi bersama error.[2]
+* Go mendukung pengembalian lebih dari satu nilai dari suatu fungsi. 
+* Ini sering digunakan, terutama saat kita ingin mengembalikan hasil operasi bersama error.
 
 ```go
 func bagi(a, b int) (int, error) {
@@ -80,8 +82,8 @@ func bagi(a, b int) (int, error) {
 * Jika terjadi pembagian dengan nol, fungsi mengembalikan error.
 
 **4. Variadic Function (Fungsi dengan Argumen Tidak Terbatas)**
-* Variadic function adalah fungsi yang dapat menerima jumlah argumen yang tidak terbatas. [1]
-* Ini dicapai dengan menggunakan tiga titik `(...)` sebelum tipe parameter.[1]
+* Variadic function adalah fungsi yang dapat menerima jumlah argumen yang tidak terbatas.
+* Ini dicapai dengan menggunakan tiga titik `(...)` sebelum tipe parameter.
 
 ```go
 func jumlah(angka ...int) int {
@@ -109,7 +111,7 @@ func main() {
 * Fungsi anonim ini langsung dieksekusi setelah didefinisikan.
 
 **6. Fungsi sebagai Argumen dan Nilai Kembalian**
-* Fungsi dalam Go juga dapat diteruskan sebagai argumen ke fungsi lain atau dikembalikan sebagai nilai.[2]
+* Fungsi dalam Go juga dapat diteruskan sebagai argumen ke fungsi lain atau dikembalikan sebagai nilai.
 
 ```go
 func apply(fn func(int) int, value int) int {
@@ -129,8 +131,8 @@ func main() {
 * Fungsi `apply` menerima fungsi `kaliDua` sebagai argumen dan menerapkannya pada nilai `5`.
 
 **7. Error Handling dengan Panic dan Recover**
- Dalam Go, mekanisme `panic` dan `recover` dapat digunakan untuk menangani error yang lebih fatal. [1]
-* `panic` digunakan untuk menghentikan program, sedangkan `recover` untuk memulihkan eksekusi program dari kondisi panic.[1]
+ Dalam Go, mekanisme `panic` dan `recover` dapat digunakan untuk menangani error yang lebih fatal. 
+* `panic` digunakan untuk menghentikan program, sedangkan `recover` untuk memulihkan eksekusi program dari kondisi panic.
 
 ```go
 func safeDivision(a, b int) {
@@ -274,10 +276,10 @@ Program tersebut dapat menghitung luas permukaan dan volume sebuah balok berdasa
 ## Unguided
 
 ### 1. Minggu ini, mahasiswa Fakultas Informatika mendapatkan tugas dari mata kuliah matematika diskrit untuk mempelajari kombinasi dan permutasi. Jonas, salah seorang mahasiswa, iseng untuk mengimplementasikannya ke dalam suatu program. Oleh karena itu, bersediakah kalian membantu Jonas?<br/>
-**Masukan** terdiri dari empat buah bilangan asli a, b, c, dan d yang dipisahkan oleh spasi, dengan syarat a ≥ c dan b ≥ d.<br/><br/>
-**Keluaran** terdiri dari dua baris. Baris pertama adalah hasil permutasi dan kombinasi a terhadap c, sedangkan baris kedua adalah hasil permutasi dan kombinasi b terhadap d.<br/><br/>
-**Catatan:** permutasi (P) dan kombinasi (C) dari n terhadap r (n ≥ r) dapat dihitung dengan menggunakan persamaan berikut!<br/><br/>
-P(n,r) = n! / (n-r)!, sedangkan C(n,r) = n! / (r! * (n-r)!)
+### **Masukan** terdiri dari empat buah bilangan asli a, b, c, dan d yang dipisahkan oleh spasi, dengan syarat a ≥ c dan b ≥ d.<br/>
+### **Keluaran** terdiri dari dua baris. Baris pertama adalah hasil permutasi dan kombinasi a terhadap c, sedangkan baris kedua adalah hasil permutasi dan kombinasi b terhadap d.<br/>
+### **Catatan:** permutasi (P) dan kombinasi (C) dari n terhadap r (n ≥ r) dapat dihitung dengan menggunakan persamaan berikut!<br/>
+### P(n,r) = n! / (n-r)!, sedangkan C(n,r) = n! / (r! * (n-r)!)
 
 **Contoh**
 
@@ -371,9 +373,9 @@ func main() {
 Program ini menghitung permutasi dan kombinasi dari empat bilangan bulat yang dimasukkan pengguna. Pertama, pengguna diminta untuk memasukkan nilai untuk variabel **a**, **b**, **c**, dan **d**. Program kemudian memeriksa apakah a lebih besar atau sama dengan c dan b lebih besar atau sama dengan d. Jika syarat tersebut terpenuhi, program menghitung dan menampilkan permutasi dan kombinasi untuk pasangan (a, c) dan (b, d) menggunakan fungsi permutasi dan kombinasi, masing-masing. Fungsi faktorial digunakan untuk menghitung faktorial dari bilangan yang diperlukan dalam perhitungan permutasi dan kombinasi. Jika syarat tidak terpenuhi, program akan menampilkan pesan kesalahan. Program ini memberikan hasil dalam format dua baris, dengan setiap baris mencakup hasil permutasi dan kombinasi.
 
 ### 2. Diberikan tiga buah fungsi matematika yaitu f(x) = x², g(x) = x - 2 dan h(x) = x + 1.
-Fungsi komposisi (f o g o h)(x) artinya adalah f(g(h(x))). Tuliskan f(x), g(x) dan h(x) dalam bentuk function.<br/><br/>
-**Masukan** terdiri dari sebuah bilangan bulat a, b dan c yang dipisahkan oleh spasi.<br/><br/>
-**Keluaran** terdiri dari tiga baris. Baris pertama adalah (f o g o h)(a), baris kedua (g o h o f)(b), dan baris ketiga adalah (h o f o g)(c)!<br/><br/>
+### Fungsi komposisi (f o g o h)(x) artinya adalah f(g(h(x))). Tuliskan f(x), g(x) dan h(x) dalam bentuk function.<br/>
+### **Masukan** terdiri dari sebuah bilangan bulat a, b dan c yang dipisahkan oleh spasi.<br/>
+### **Keluaran** terdiri dari tiga baris. Baris pertama adalah (f o g o h)(a), baris kedua (g o h o f)(b), dan baris ketiga adalah (h o f o g)(c)!<br/>
 
 **Contoh**
 
@@ -450,9 +452,9 @@ Dalam fungsi main, program meminta pengguna untuk memasukkan tiga bilangan bulat
 2. Hasil fungsi gohof dari b, yang merupakan hasil dari g(h(f(b))).
 3. Hasil fungsi gohof dari c, yang merupakan hasil dari h(f(g(c))).
 
-### 3. [**Lingkaran**] Suatu lingkaran didefinisikan dengan koordinat titik pusat (cx, cy) dengan radius r. Apabila diberikan dua buah lingkaran, maka tentukan posisi sebuah titik sembarang (x, y) berdasarkan dua lingkaran tersebut.<br/><br/>
-**Masukan** Terdiri dari beberapa tiga baris. Baris pertama dan kedua adalah koordinat titik pusat dan radius dari lingkaran 1 dan lingkaran 2, sedangkan baris ketiga adalah koordinat titik sembarang. Asumsi sumbu x dan y dari semua titik dan juga radius direpresentasikan dengan bilangan bulat.<br/><br/>
-**Keluaran** Berupa string yang menyatakan posisi titik **"Titik di dalam lingkaran 1 dan 2"**, **"Titik di dalam lingkaran 1"**, **"Titik di dalam lingkaran 2"**, atau **"Titik di luar lingkaran 1 dan 2"**.
+### 3. [**Lingkaran**] Suatu lingkaran didefinisikan dengan koordinat titik pusat (cx, cy) dengan radius r. Apabila diberikan dua buah lingkaran, maka tentukan posisi sebuah titik sembarang (x, y) berdasarkan dua lingkaran tersebut.<br/>
+### **Masukan** Terdiri dari beberapa tiga baris. Baris pertama dan kedua adalah koordinat titik pusat dan radius dari lingkaran 1 dan lingkaran 2, sedangkan baris ketiga adalah koordinat titik sembarang. Asumsi sumbu x dan y dari semua titik dan juga radius direpresentasikan dengan bilangan bulat.<br/><br/>
+### **Keluaran** Berupa string yang menyatakan posisi titik **"Titik di dalam lingkaran 1 dan 2"**, **"Titik di dalam lingkaran 1"**, **"Titik di dalam lingkaran 2"**, atau **"Titik di luar lingkaran 1 dan 2"**.
 
 **Contoh**
 | No | Masukan | Keluaran |
