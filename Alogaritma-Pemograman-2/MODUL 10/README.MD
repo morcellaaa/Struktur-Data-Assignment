@@ -3,8 +3,8 @@
 
 <br>
 
-<h2 align="center"><strong>MODUL V</strong></h2>
-<h2 align="center"><strong> REKURSIF </strong></h2>
+<h2 align="center"><strong>MODUL XI</strong></h2>
+<h2 align="center"><strong> PENCARIAN NILAI EKSTRIM PADA HIMPUNAN DATA </strong></h2>
 
 <br>
 
@@ -280,29 +280,23 @@ func main() {
 
 #### Alur Program
 
-a) Inisialisasi Program
-	* Program dimulai dengan menampilkan header berisi informasi tentang program.
-	* Meminta Input Jumlah Kelinci
-
-b) Pengguna diminta memasukkan jumlah kelinci (n_2311102177).
-    * Jika jumlah kelinci yang dimasukkan kurang dari atau sama dengan nol, program meminta pengguna untuk memasukkan jumlah yang valid.
-    * Memasukkan Berat Kelinci
-
-Pengguna diminta untuk memasukkan berat badan masing-masing kelinci sebanyak jumlah yang telah dimasukkan.
-Pengolahan Data Berat Kelinci
-
-Program mengurutkan berat kelinci secara menaik menggunakan fungsi bawaan sort.Float64s.
-Menampilkan Hasil Pengolahan
-
-Program menampilkan:
-Berat kelinci terkecil (elemen pertama dalam slice setelah diurutkan).
-Berat kelinci terbesar (elemen terakhir dalam slice setelah diurutkan).
-Daftar berat kelinci yang telah diurutkan dalam bentuk daftar.
-Menanyakan Pengguna untuk Melanjutkan atau Berhenti
-
-Program menanyakan apakah pengguna ingin mengulangi proses atau keluar.
-Jika pengguna memilih untuk mengulangi (yes/ya), proses kembali ke langkah 2.
-Jika pengguna memilih untuk berhenti, program menampilkan pesan penutup dan berhenti.
+* Inisialisasi Program
+  * Program dimulai dengan menampilkan header berisi informasi tentang program.
+* Meminta Input Jumlah Kelinci
+  * Pengguna diminta memasukkan jumlah kelinci (n).
+  * Jika jumlah kelinci yang dimasukkan kurang dari atau sama dengan nol, program meminta pengguna untuk memasukkan jumlah yang valid.
+* Memasukkan Berat Kelinci
+  * Pengguna diminta untuk memasukkan berat badan masing-masing kelinci sebanyak jumlah yang telah dimasukkan.
+* Pengolahan Data Berat Kelinci
+  * Program mengurutkan berat kelinci secara menaik menggunakan fungsi bawaan sort.Float64s.
+* Menampilkan Hasil Pengolahan, program menampilkan:
+  * Berat kelinci terkecil (elemen pertama dalam slice setelah diurutkan).
+  * Berat kelinci terbesar (elemen terakhir dalam slice setelah diurutkan).
+  * Daftar berat kelinci yang telah diurutkan dalam bentuk daftar.
+  * Menanyakan Pengguna untuk Melanjutkan atau Berhenti
+* Program menanyakan apakah pengguna ingin mengulangi proses atau keluar.
+  * Jika pengguna memilih untuk mengulangi (yes/ya), proses kembali ke langkah 2.
+  * Jika pengguna memilih untuk berhenti, program menampilkan pesan penutup dan berhenti.
 
 #### Deskripsi Program
 
@@ -331,8 +325,88 @@ Terdiri dari dua baris:
 #### Source Code
 
 ```go
+// LAILATUR RAHMAH
+// 2311102177
+// IF 11 06
 
+package main
 
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+	// Input: Masukan
+	var x_2311102177, y int
+	var ikan []float64
+
+	// Meminta pengguna untuk memasukkan jumlah ikan
+	fmt.Println(strings.Repeat("=", 40))
+	fmt.Println("    Program Pengolahan Berat Ikan")
+	fmt.Println(strings.Repeat("=", 40))
+
+	fmt.Print("\nMasukkan jumlah ikan yang akan dijual (x): ")
+	fmt.Scanln(&x_2311102177)
+	if x_2311102177 <= 0 {
+		fmt.Println("\n[!] Jumlah ikan harus positif.")
+		return // Keluar dari program jika jumlah ikan tidak valid
+	}
+
+	// Meminta pengguna untuk memasukkan jumlah wadah
+	fmt.Print("\nMasukkan jumlah wadah (y): ")
+	fmt.Scanln(&y)
+	if y <= 0 {
+		fmt.Println("\n[!] Jumlah wadah harus positif.")
+		return // Keluar dari program jika jumlah wadah tidak valid
+	}
+
+	// Meminta pengguna untuk memasukkan berat setiap ikan satu per satu
+	fmt.Println("\nMasukkan berat setiap ikan (dalam kg):")
+	for i := 0; i < x_2311102177; i++ {
+		var berat float64
+		fmt.Printf("  - Berat ikan %d: ", i+1)
+		_, err := fmt.Scanln(&berat)
+		if err != nil {
+			fmt.Println("\n[!] Input berat ikan tidak valid.")
+			return // Keluar dari program jika ada kesalahan input
+		}
+		ikan = append(ikan, berat)
+	}
+
+	// Hitung total berat ikan di setiap wadah
+	wadah := make([]float64, y) // Membuat slice untuk menyimpan total berat di setiap wadah
+	for i := 0; i < x_2311102177; i++ {
+		wadah[i%y] += ikan[i] // Menambahkan berat ikan ke wadah yang sesuai
+	}
+
+	// Hitung rata-rata berat ikan di setiap wadah
+	rataRata := 0.0
+	for _, v := range wadah {
+		rataRata += v // Menjumlahkan total berat di semua wadah
+	}
+	rataRata /= float64(x_2311102177) // Rata-rata berdasarkan jumlah ikan
+
+	// Output: Keluaran
+	fmt.Println("\n" + strings.Repeat("-", 40))
+	fmt.Println("     Hasil Pengolahan Berat Ikan")
+	fmt.Println(strings.Repeat("-", 40))
+
+	// Menampilkan total berat ikan di setiap wadah
+	fmt.Println("\nTotal berat ikan di setiap wadah:")
+	for i, v := range wadah {
+		fmt.Printf("  Wadah %d: %.2f kg\n", i+1, v) // Menampilkan total berat ikan di setiap wadah
+	}
+
+	// Menampilkan berat rata-rata ikan di setiap wadah
+	fmt.Println("\nBerat rata-rata ikan di setiap wadah:")
+	fmt.Printf("  %.2f kg\n", rataRata) // Menampilkan rata-rata berat ikan
+
+	// Akhir dari program
+	fmt.Println("\n" + strings.Repeat("=", 40))
+	fmt.Println("Terima kasih telah menggunakan program ini!")
+	fmt.Println(strings.Repeat("=", 40))
+}
 ```
 
 #### Screenshoot Output
@@ -341,9 +415,29 @@ Terdiri dari dua baris:
 
 #### Alur Program
 
+* Inisialisasi Program
+    * Program menampilkan header untuk menjelaskan tujuan dari aplikasi.
+* Input Data Pengguna
+    * Pengguna memasukkan jumlah ikan (x).
+    * Jika jumlah ikan kurang dari atau sama dengan nol, program menghentikan proses dan memberikan peringatan.
+    * Pengguna memasukkan jumlah wadah (y). Jika jumlah wadah kurang dari atau sama dengan nol, program juga menghentikan proses dengan peringatan.
+* Input Berat Ikan
+    * Pengguna diminta untuk memasukkan berat setiap ikan satu per satu.
+    * Jika ada kesalahan input (berat tidak valid), program akan berhenti.
+* Proses Distribusi Berat Ikan ke Wadah
+    * Berat ikan didistribusikan ke dalam wadah menggunakan indeks modulo (i % y), sehingga ikan dimasukkan secara berurutan ke wadah secara siklis.
+* Menghitung Total dan Rata-rata Berat
+    * Program menjumlahkan total berat ikan di setiap wadah.
+    * Menghitung rata-rata berat ikan per wadah berdasarkan jumlah total ikan.
+* Menampilkan Hasil Pengolahan
+    * Program menampilkan total berat ikan di setiap wadah.
+    * Menampilkan rata-rata berat ikan per wadah.
+* Akhir Program
+    * Program menampilkan pesan penutup setelah semua hasil ditampilkan.
 
 #### Deskripsi Program
 
+Program ini digunakan untuk mengolah berat ikan yang akan dibagi ke dalam beberapa wadah. Pengguna memasukkan jumlah ikan dan jumlah wadah, lalu memasukkan berat masing-masing ikan. Program menghitung total berat ikan di setiap wadah secara merata menggunakan pendekatan modulo untuk distribusi. Selain itu, program juga menghitung dan menampilkan rata-rata berat ikan per wadah. Hasilnya adalah distribusi berat ikan per wadah serta nilai rata-rata berat ikan.
 
 ### Study Case
 
@@ -383,8 +477,72 @@ Rerata berat balita: 6.38 kg
 #### Source Code
 
 ```go
+// LAILATUR RAHMAH
+// 2311102177
+// IF 11 06
 
+package main
 
+import (
+	"fmt"
+)
+
+// Definisi tipe array untuk berat balita
+type arrBalita [100]float64
+
+// Subprogram untuk menghitung berat minimum dan maksimum
+func hitungMinMax(arrBerat arrBalita, n int, min, max *float64) {
+	*min = arrBerat[0]
+	*max = arrBerat[0]
+	for i := 1; i < n; i++ {
+		if arrBerat[i] < *min {
+			*min = arrBerat[i]
+		}
+		if arrBerat[i] > *max {
+			*max = arrBerat[i]
+		}
+	}
+}
+
+// Subprogram untuk menghitung rata-rata berat balita
+func rataRata(arrBerat arrBalita, n int) float64 {
+	total := 0.0
+	for i := 0; i < n; i++ {
+		total += arrBerat[i]
+	}
+	return total / float64(n)
+}
+
+func main() {
+	var n_2311102177 int
+	var berat arrBalita
+	var min, max float64
+
+	// Input jumlah data balita
+	fmt.Print("Masukkan banyak data berat balita: ")
+	fmt.Scan(&n_2311102177)
+
+	// Validasi jumlah data
+	if n_2311102177 <= 0 || n_2311102177 > 100 {
+		fmt.Println("Jumlah data balita harus antara 1 dan 100.")
+		return
+	}
+
+	// Input berat balita
+	for i := 0; i < n_2311102177; i++ {
+		fmt.Printf("Masukkan berat balita ke-%d: ", i+1)
+		fmt.Scan(&berat[i])
+	}
+
+	// Hitung nilai minimum, maksimum, dan rata-rata
+	hitungMinMax(berat, n_2311102177, &min, &max)
+	rata := rataRata(berat, n_2311102177)
+
+	// Output hasil
+	fmt.Printf("Berat balita minimum: %.2f kg\n", min)
+	fmt.Printf("Berat balita maksimum: %.2f kg\n", max)
+	fmt.Printf("Rata-rata berat balita: %.2f kg\n", rata)
+}
 ```
 
 #### Screenshoot Output
@@ -393,5 +551,23 @@ Rerata berat balita: 6.38 kg
 
 #### Alur Program
 
+* Inisialisasi Program
+    * Program dimulai dengan deklarasi variabel untuk menyimpan jumlah balita, data berat balita, nilai minimum, maksimum, dan rata-rata berat balita.
+* Input Jumlah Data Balita
+    * Pengguna diminta untuk memasukkan jumlah balita (n).
+    * Jika jumlah balita tidak valid (kurang dari 1 atau lebih dari 100), program memberikan pesan peringatan dan berhenti.
+* Input Berat Balita
+    * Pengguna diminta memasukkan berat balita satu per satu.
+    * Data berat setiap balita disimpan dalam array berat.
+* Menghitung Berat Minimum dan Maksimum
+    * Subprogram hitungMinMax digunakan untuk menentukan berat balita terkecil (min) dan terbesar (max) dalam array.
+* Menghitung Rata-Rata Berat Balita
+    * Subprogram rataRata menghitung rata-rata berat balita berdasarkan jumlah total berat dan jumlah balita.
+* Menampilkan Hasil Perhitungan
+    * Program menampilkan berat minimum, maksimum, dan rata-rata balita dengan format desimal hingga dua angka di belakang koma.
+* Akhir Program
+    * Setelah hasil ditampilkan, program berhenti.
 
 #### Deskripsi Program
+
+Program ini dirancang untuk mengolah data berat badan balita. Pengguna diminta untuk memasukkan jumlah balita dan berat badan masing-masing balita. Program kemudian menghitung nilai minimum, maksimum, dan rata-rata berat balita dari data yang diberikan. Hasilnya ditampilkan dalam format yang mudah dipahami, sehingga mempermudah pengguna dalam menganalisis berat badan balita.
