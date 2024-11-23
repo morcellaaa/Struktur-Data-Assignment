@@ -281,8 +281,8 @@ func main() {
 #### Alur Program
 
 a) Inisialisasi Program
-    * Program dimulai dengan menampilkan header berisi informasi tentang program.
-    * Meminta Input Jumlah Kelinci
+	* Program dimulai dengan menampilkan header berisi informasi tentang program.
+	* Meminta Input Jumlah Kelinci
 
 b) Pengguna diminta memasukkan jumlah kelinci (n_2311102177).
     * Jika jumlah kelinci yang dimasukkan kurang dari atau sama dengan nol, program meminta pengguna untuk memasukkan jumlah yang valid.
